@@ -4,6 +4,8 @@
 import random
 import math
 
+ABC = 'абвгдежзийклмнопрстуфхцчшщъыьэюя '
+
 p = 173
 q = 313
 n = p * q
@@ -14,7 +16,7 @@ def main():
     print('p =', p)
     print('q =', q)
     #message = input('Enter a message: ')
-    message = 'Привет мир'
+    message = 'привет мир'
     print('Ваше сообщение:',message)
     Fi = funcOfEuler(n)
     print('Fi = ', Fi)
@@ -24,6 +26,7 @@ def main():
     closed_key = [d, n]
     print('пара чисел открытый ключ = ', open_key)
     print('пара чисел закрытый ключ = ', closed_key)
+    print('шифр Строка =', abc_in_code(ABC, message))
 
 def funcOfEuler(n):
     print('вычисление функции эйлера')
@@ -51,6 +54,32 @@ def choice_num_e(d, Fi):
         else:
             e = e + 1
     return e
+def abc_in_code(ABC, message):
+    print('вывожу кодировки из условия')
+    print('длинна алфавита', len(ABC))
+    
+    i = 0
+    flag = True
+    arrayCodes = []
+    print('ищу пробел', ABC.find(' '))
+    while i < len(message):
+        if message[i] == ' ':
+            arrayCodes.append(99)
+            i = i + 1
+        else:
+            arrayCodes.append(10 + ABC.find(message[i]))
+            i = i + 1
+
+
+    print('закодированное сообщение = ', arrayCodes)
+    return arrayCodes
+
+
+
+
+
+def encrypt_func():
+    print('начинаю зашифровывать')
 
 
 

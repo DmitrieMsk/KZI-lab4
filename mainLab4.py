@@ -26,7 +26,10 @@ def main():
     closed_key = [d, n]
     print('пара чисел открытый ключ = ', open_key)
     print('пара чисел закрытый ключ = ', closed_key)
-    print('шифр Строка =', abc_in_code(ABC, message))
+    message_in_Codes = abc_in_code(ABC, message)
+    print('шифр Строка =', message_in_Codes)
+    str_message_Codes = fromIntToStr(message_in_Codes)
+    print('перевожу из интов в строку', fromIntToStr(message_in_Codes))
 
 def funcOfEuler(n):
     print('вычисление функции эйлера')
@@ -72,7 +75,14 @@ def abc_in_code(ABC, message):
     return arrayCodes
 
 
-
+def fromIntToStr(int_array):
+    print('перевожу из массива интов в строку без всего лишнего')
+    strDima = str(int_array)
+    strDima = strDima.replace(',', '')
+    strDima = strDima.replace('[', '')
+    strDima = strDima.replace(']', '')
+    strDima = strDima.replace(' ', '')
+    return strDima
 
 
 def encrypt_func():

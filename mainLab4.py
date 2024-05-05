@@ -57,9 +57,7 @@ def choice_num_e(d, Fi):
 def abc_in_code(ABC, message):
     print('вывожу кодировки из условия')
     print('длинна алфавита', len(ABC))
-    
     i = 0
-    flag = True
     arrayCodes = []
     print('ищу пробел', ABC.find(' '))
     while i < len(message):
@@ -69,8 +67,7 @@ def abc_in_code(ABC, message):
         else:
             arrayCodes.append(10 + ABC.find(message[i]))
             i = i + 1
-
-
+    i = 0
     print('закодированное сообщение = ', arrayCodes)
     return arrayCodes
 

@@ -3,7 +3,7 @@
 # q = 313
 import random
 import math
-
+import re
 ABC = 'абвгдежзийклмнопрстуфхцчшщъыьэюя '
 
 p = 173
@@ -16,7 +16,7 @@ def main():
     print('p =', p)
     print('q =', q)
     #message = input('Enter a message: ')
-    message = 'привет мир'
+    message = 'привет мир кукуха едет'
     print('Ваше сообщение:',message)
     Fi = funcOfEuler(n)
     print('Fi = ', Fi)
@@ -30,6 +30,10 @@ def main():
     print('шифр Строка =', message_in_Codes)
     str_message_Codes = fromIntToStr(message_in_Codes)
     print('перевожу из интов в строку', fromIntToStr(message_in_Codes))
+    message_code_in_block = splitting_into_block(n, str_message_Codes)
+    print('разбили сообщение на блоки = ', message_code_in_block)
+
+
 
 def funcOfEuler(n):
     print('вычисление функции эйлера')
@@ -83,6 +87,21 @@ def fromIntToStr(int_array):
     strDima = strDima.replace(']', '')
     strDima = strDima.replace(' ', '')
     return strDima
+
+def splitting_into_block(n, message_in_codes):
+    print('начинаю разбивать на блоки')
+    n_to_str = str(n)
+    digits = len(n_to_str)
+    print('длина модуля шифрования (разрядность) = ', digits)
+    digits_block = digits - 2
+    print('разрядность блока = ',digits_block)
+    lenMessageCode = len(message_in_codes)
+    numOfBlock = lenMessageCode // digits_block
+    print('столько будет блоков = ',numOfBlock)
+    i = 0
+    results_blocks = re.findall('(.{%s}|.+$)' % digits_block, message_in_codes) #бью на блоки
+    print('пробую бить', results_blocks)
+    return results_blocks
 
 
 def encrypt_func():

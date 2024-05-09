@@ -15,18 +15,21 @@ n = p * q
 d = 5087
 e = 50879
 def main():
+
     print('start program')
+
     print('инициализация переменных')
     print('n =', n)
     print('p =', p)
     print('q =', q)
-    #message = input('Enter a message: ')
-    message = 'привет мир кукуха едет'
+    message = 'аааааа'
     print('Ваше сообщение:',message)
     Fi = funcOfEuler(n)
     print('Fi = ', Fi)
     #d = choice_Num_D(n, Fi)
     #e = choice_num_e(d, Fi)
+    print('старт генерации нескольких пар ключей')
+    gerationKeys(n, Fi)
     open_key = [e, n]
     closed_key = [d, n]
     print('пара чисел открытый ключ = ', open_key)
@@ -202,7 +205,17 @@ def decrypt_func(shtext, d, n, ABC):
     clear = deleteLishnee(openOpenOpentext)
     print('openOpenOpentext = ', clear)
 
+def gerationKeys(n,Fi):
+    print('генерирую три пары открытый - закрытый ключ:')
 
+    shetKey = 3
+    i = 0
+    while i<shetKey:
+        d = choice_Num_D(n,Fi)
+        e = choice_num_e(d, Fi)
+        print(f'пара {i} открытый ключ: ({e},{n})' )
+        print(f'пара {i} закрытый ключ: ({d},{n})')
+        i = i + 1
 
 
 
